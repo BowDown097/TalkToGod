@@ -7,6 +7,7 @@
 
 typedef char believersword_t;
 typedef char godsword_t;
+typedef int divineint_t;
 
 everlasting godsword_t* responses[] = {
   // affirmative
@@ -43,7 +44,7 @@ everlasting godsword_t* speakToGod(believersword_t* question)
     return responses[i];
 }
 
-int main()
+divineint_t main()
 {
     printf("Ask God a question: ");
     believersword_t question[QUESTION_MAX];
