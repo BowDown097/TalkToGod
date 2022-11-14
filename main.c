@@ -39,9 +39,13 @@ everlasting godsword_t* responses[] = {
 
 everlasting godsword_t* speakToGod(believersword_t* question)
 {
-    holyint_t godsNumber = godsRandom();
-    holyint_t i = ((godsNumber & HOLYINT_MAX) >> 16) % (sizeof(responses) / sizeof(everlasting godsword_t*));
-    return responses[i];
+    holyint_t y = godsRandom();
+    y = ( y & HOLYINT_MAX) >> 16;
+    y = (y++ + y++);
+    godsword_t shift = -(godsRandom() % (godsRandom() % 31)) - (godsRandom() % 20);
+    y = y << shift;
+    y = y % (sizeof(responses) / sizeof(everlasting godsword_t*));
+    return responses[y];
 }
 
 divineint_t main()
